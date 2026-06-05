@@ -1,0 +1,69 @@
+
+
+/*BODY GENERALE*/
+body { 
+  margin: 0; /*rimuoviamo i margini automatici del browser*/
+  min-height: 100vh;
+  background-color: black;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+a {
+  color: inherit;/*eredita il colore del contenitore padre*/
+  text-decoration: none;/*rimuove la sottolineatura dei link*/
+}
+
+/*BOTTONI*/
+button, .btn {
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;/*animazione fluida*/
+}
+
+/*INPUT GENERICI*/
+input {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+/*valid/dinvalid input*/
+input:invalid {
+  border: 2px solid #ff4d4d; /*bordo rosso se input non valido*/
+}
+
+input:valid {
+  border: 2px solid #00ff88;
+}
+
+/* Stile per il pulsante della Home */
+.btn-entra {
+    display: inline-block;
+    background-color: #2e7d32; /* Verde stile "Jungle" */
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Effetto quando ci passi sopra col mouse */
+.btn-entra:hover {
+    background-color: #1b5e20; /* Verde più scuro */
+    transform: translateY(-2px); /* Effetto sollevamento */
+}
+
+/*RESPONSIVE BASE*/ 
+@media (max-width: 768px) { /*regole applicate su tablet e smartphone*/
+  img, video {
+    max-width: 100%; /*evita overflow orizzontale*/
+    height: auto; /*mantiene proporzioni corrette*/
+  }
+}

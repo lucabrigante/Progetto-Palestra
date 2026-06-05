@@ -1,0 +1,163 @@
+
+
+/*contenitore principale del form*/
+.register-container {
+  width: 400px;
+  max-width: 90%;
+  margin: 80px auto;
+  padding: 30px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.3); 
+}
+
+/*titolo form*/
+.register-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ff0000;
+  font-size: 2rem;
+  letter-spacing: 1px; /*aumenta spazio tra lettere*/
+}
+
+/*label dei campi*/
+.register-container label {
+  display: block; /*va su nuova riga*/
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+/*input del form*/
+.register-container input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #333;
+  border-radius: 12px;
+  background: #111;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/*input focus*/
+.register-container input:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 8px #ff0000;/*glow rosso*/
+}
+
+/*container password con pulsante*/
+.password-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/*pulsante mostra password*/
+.password-container button {
+  padding: 8px 12px;
+  background: #ff0000;
+  color: black;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.password-container button:hover {
+  background: #cc0000;  /*rosso piu scuro*/
+}
+
+/*pulsante principale del form*/
+.register-container button[type="submit"] {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px 0;
+  background: #ff0000;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+/*pulsante submit hover*/
+.register-container button[type="submit"]:hover {
+  background: #cc0000;
+  transform: translateY(-2px); /*effetto sollevamento*/
+  box-shadow: 0 4px 15px rgba(255,0,0,0.4);
+}
+
+/*link sotto al form*/
+.register-container p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.register-container p a {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.register-container p a:hover {
+  color: #cc0000;
+  text-decoration: underline; /*sottolineato*/
+}
+
+/*responsive*/
+@media (max-width: 480px) {
+  .register-container {
+    padding: 20px;
+  }
+  .register-container h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/*messaggi dal php*/
+.message {
+  width: 400px;
+  max-width: 90%;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.message.success {
+  background-color: #ff6666;
+  color: black;
+  box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+.message.error {
+  background-color: #ff0000;
+  color: white;
+  box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+.message a {
+  color: inherit;
+  text-decoration: underline;
+}
+/*istruzioni password*/
+.password-instructions {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.password-instructions p {
+  margin: 3px 0;
+  font-size: 0.9rem;
+  color: #ff4d4d; /*rosso per requisito non rispettato*/
+}
+
+.password-instructions p.valid {
+  color: #00ff88; /*verde per requisito rispettato*/
+}
+.password-instructions p.invalid {
+  color: #ff4d4d;
+}

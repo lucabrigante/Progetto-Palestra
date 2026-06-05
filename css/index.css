@@ -1,0 +1,191 @@
+
+/*immagini laterali*/
+.side-image {
+  position: absolute;
+  width: 360px; 
+  height: 360px;
+  object-fit: cover; /*evita distorsione immagine*/
+  border-radius: 20px;
+  top: 0;
+  box-shadow: 0 16px 40px rgba(255,0,0,0.8);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  z-index: 1;
+  opacity: 0;
+  animation: slideIn 1.5s forwards;/*animazione ingresso*/
+}
+
+
+.side-image.left {
+  left: -400px;
+  animation-name: slideInLeft;
+}
+
+.side-image.right {
+  right: -400px;
+  animation-name: slideInRight;
+}
+
+
+.side-image:hover {
+  transform: scale(1.2) rotate(-4deg);/*zoom e rotazione hover*/
+  box-shadow: 0 20px 50px rgba(255,0,0,1);
+}
+
+/*animazioni*/
+@keyframes slideInLeft {
+  0% { transform: translateX(0) rotate(0deg); opacity: 0; }/*partenza*/
+  100% { transform: translateX(420px) rotate(-2deg); opacity: 1; }/*arrivo*/
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(0) rotate(0deg); opacity: 0; }/*partenza*/
+  100% { transform: translateX(-420px) rotate(2deg); opacity: 1; }/*arrivo*/
+}
+
+/*logo centrale*/
+.top-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  z-index: 2; /*l'elemento compare sopra le immagnii laterali*/
+}
+
+.top-image img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #ff0000;
+  box-shadow: 0 0 40px #ff0000, 0 0 70px #cc0000 inset;
+  animation: rotatePulse 6s infinite linear, pulseGlow 2s infinite;
+}
+
+@keyframes rotatePulse {
+  0% { transform: rotate(0deg) scale(1); } /*stato iniziale*/
+  50% { transform: rotate(5deg) scale(1.03); } /*movimento leggero*/
+  100% { transform: rotate(0deg) scale(1); } /*ritorno*/
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 40px #ff0000, 0 0 70px #cc0000 inset; }
+  50% { box-shadow: 0 0 60px #ff4d4d, 0 0 100px #ff0000 inset; }
+}
+
+/*testo introduttivo*/
+.intro-text {
+  text-align: center;
+  max-width: 750px;
+  margin: 50px auto 0 auto;
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+}
+
+/*titolo principale*/
+.intro-text .welcome {
+  font-family: Impact, Arial Black, sans-serif;
+  font-size: 2.5rem;
+  color: #ff1a1a;
+  text-shadow: 4px 4px 10px rgba(0,0,0,0.8), 0 0 20px #ff0000;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  animation: glowPulse 2s infinite, textEntrance 1s forwards;
+  opacity: 0;
+}
+/*glow del titolo*/
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 4px 4px 10px rgba(0,0,0,0.8), 0 0 20px #ff0000; }
+  50% { text-shadow: 6px 6px 16px rgba(0,0,0,0.9), 0 0 35px #ff4d4d; }
+}
+/*animazione ingresso testo*/
+@keyframes textEntrance {
+  0% { transform: translateY(-40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/*descrizione*/
+.intro-text .description {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 3px black;
+  animation: textEntrance 1.2s forwards;
+  opacity: 0; /*parte invisibile*/
+  animation-delay: 0.3s;/*ritardo animazione*/
+}
+
+/*bottone login*/
+.intro-text .login-link a {
+  display: inline-block; /*comportamento bottone*/
+  padding: 18px 35px;
+  background: linear-gradient(145deg, #ff0000, #cc0000);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 30px rgba(255,0,0,0.8);
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase; /*maiuscolo*/
+  letter-spacing: 1px; /*spaziatura lettere*/
+  animation: textEntrance 1.4s forwards; /*entrata animata*/
+  opacity: 0;
+  animation-delay: 0.6s; /*ritardo*/
+}
+
+.intro-text .login-link a:hover {
+  background: linear-gradient(145deg, #ff4d4d, #cc0000); /*hover piu chiaro*/
+  transform: scale(1.12) rotate(-2deg); /*zoom + rotazione*/
+  box-shadow: 0 12px 40px rgba(255,0,0,1), 0 0 20px #ff4d4d inset; /*glow forte*/
+}
+
+/*responsive tablet, riduce un po tutto*/
+@media (max-width: 1024px) {
+  .side-image {
+    width: 260px;
+    height: 260px;
+  }
+
+  .top-image img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .intro-text .welcome {
+    font-size: 2.2rem;
+  }
+
+  .intro-text .description {
+    font-size: 1.2rem;
+  }
+
+  .intro-text .login-link a {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+/*responsive mobile, pure qui si riduce un po tutto*/
+@media (max-width: 768px) {
+  .side-image {
+    display: none;
+  }
+
+  .top-image img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .intro-text .welcome {
+    font-size: 1.8rem;
+  }
+
+  .intro-text .description {
+    font-size: 1rem;
+  }
+
+  .intro-text .login-link a {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
